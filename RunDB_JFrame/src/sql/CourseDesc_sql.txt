@@ -1,0 +1,4 @@
+SELECT	Description
+FROM	Course
+WHERE ID = VAR1
+;

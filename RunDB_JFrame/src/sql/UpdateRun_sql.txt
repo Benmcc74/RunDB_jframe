@@ -1,0 +1,6 @@
+UPDATE CompletedRuns
+SET runCrse = VAR2,
+	runDate = 'VAR3',
+	runTime = 'VAR4'
+WHERE runID = VAR1
+;

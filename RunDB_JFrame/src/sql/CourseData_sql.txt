@@ -1,0 +1,10 @@
+SELECT	a.runDate,
+		b.Description,
+		b.mileage,
+		a.runTime
+FROM	CompletedRuns a
+JOIN	Course b
+ON		a.runCrse = b.ID
+WHERE	a.runCrse = VAR1
+ORDER BY runDate desc
+;

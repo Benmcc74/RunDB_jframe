@@ -1,0 +1,11 @@
+SELECT	a.runDate,
+	b.ID,
+	a.runTime,
+        b.Description,
+        b.Mileage
+FROM	CompletedRuns a
+JOIN	Course b
+ON		a.runCrse = b.ID
+WHERE	CONVERT(varchar,datepart(year,runDate)) = 'VAR1'
+ORDER BY a.runId
+;

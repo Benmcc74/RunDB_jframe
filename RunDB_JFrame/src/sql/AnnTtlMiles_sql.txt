@@ -1,0 +1,8 @@
+SELECT	CONVERT(varchar,datepart(year,runDate)),
+		SUM(b.mileage) AS TotalMiles
+FROM	CompletedRuns a
+JOIN	Course b
+ON		a.runCrse = b.ID
+WHERE	CONVERT(varchar,datepart(year,runDate)) = 'VAR1'
+GROUP BY CONVERT(varchar,datepart(year,runDate))
+;

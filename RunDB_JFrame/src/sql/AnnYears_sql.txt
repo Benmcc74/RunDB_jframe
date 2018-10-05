@@ -1,0 +1,4 @@
+select DISTINCT(CONVERT(varchar,datepart(year,runDate)))
+from CompletedRuns
+order by 1 desc
+;

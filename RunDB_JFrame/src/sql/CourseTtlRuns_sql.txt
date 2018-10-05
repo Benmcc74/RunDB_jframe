@@ -1,0 +1,6 @@
+SELECT	COUNT(*) as TtlRuns
+FROM	CompletedRuns a
+JOIN	Course b
+ON		a.runCrse = b.ID
+WHERE	a.runCrse = VAR1
+;

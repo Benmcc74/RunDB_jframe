@@ -1,0 +1,5 @@
+SELECT	SUM(b.mileage) AS TotalMiles
+FROM	CompletedRuns a
+JOIN	Course b
+ON		a.runCrse = b.ID
+;

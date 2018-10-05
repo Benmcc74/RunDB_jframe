@@ -1,0 +1,7 @@
+INSERT INTO CompletedRuns
+VALUES (
+'VAR2',
+'VAR1',
+'VAR3'
+);
+COMMIT;

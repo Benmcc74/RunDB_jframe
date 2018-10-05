@@ -1,0 +1,5 @@
+INSERT INTO Course
+VALUES (
+'VAR1',
+VAR2
+);

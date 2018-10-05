@@ -1,0 +1,9 @@
+SELECT TOP (1)	runDate AS FastestDate, 
+				runTime AS FastestTime 
+FROM CompletedRuns 
+WHERE runTime = 
+(	SELECT CONVERT(varchar, MIN(a.runTime), 108) 
+	FROM CompletedRuns a 
+	JOIN Course b ON a.runCrse = b.ID 
+	WHERE a.runCrse = VAR1) 
+AND runCrse = VAR1;

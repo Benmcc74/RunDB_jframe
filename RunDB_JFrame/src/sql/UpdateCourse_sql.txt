@@ -1,0 +1,5 @@
+UPDATE Course
+SET		Description = 'VAR2',
+		Mileage = VAR3
+WHERE 	ID = VAR1
+;

@@ -1,0 +1,11 @@
+SELECT	TOP (1) runDate AS WorstDate,
+		runTime AS WorstTime
+FROM CompletedRuns
+WHERE runTime = (
+SELECT	CONVERT(varchar, MAX(a.runTime), 108)
+FROM	CompletedRuns a
+JOIN	Course b
+ON		a.runCrse = b.ID
+WHERE	a.runCrse = VAR1)
+AND runCrse = VAR1
+;

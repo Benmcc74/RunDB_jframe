@@ -1,0 +1,6 @@
+SELECT	CONVERT(varchar,(cast(cast(avg(cast(CAST(a.runTime as datetime) as float)) as datetime) as time)),108) AvgTime
+FROM	CompletedRuns a
+JOIN	Course b
+ON		a.runCrse = b.ID
+WHERE	a.runCrse = VAR1
+;

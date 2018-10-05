@@ -1,0 +1,4 @@
+SELECT	COUNT(*) AS TotalRuns
+FROM	CompletedRuns
+WHERE	CONVERT(varchar,datepart(year,runDate)) = 'VAR1'
+;

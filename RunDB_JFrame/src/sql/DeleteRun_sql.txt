@@ -1,0 +1,2 @@
+DELETE FROM CompletedRuns
+WHERE runID = VAR1;
