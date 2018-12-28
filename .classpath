@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="src" path="RunDB_v2/src"/>
-	<classpathentry exported="true" kind="lib" path="C:/Eclipse/workspace/RunDB_v2.zip_expanded/RunDB_v2/src/rundb2/sqljdbc41.jar"/>
+	<classpathentry excluding="src/resources/" kind="src" path="RunDB_JFrame"/>
+	<classpathentry kind="src" path="RunDB_JFrame/src/resources"/>
+	<classpathentry kind="lib" path="C:/Eclipse/workspace/RunDB_v2.zip_expanded/RunDB_JFrame/src/rundb2/sqljdbc41.jar"/>
+	<classpathentry kind="lib" path="C:/Eclipse/workspace/RunDB_v2.zip_expanded/RunDB_JFrame/src/rundb2/log4j-api-2.11.1.jar"/>
+	<classpathentry kind="lib" path="C:/Eclipse/workspace/RunDB_v2.zip_expanded/RunDB_JFrame/src/rundb2/log4j-core-2.11.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

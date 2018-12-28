@@ -13,12 +13,17 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 /**
  *
  * @author Ben McCarthy
  */
 public class Course {
-    public Statement stmt;
+	private Logger logger = LogManager.getLogger(Course.class);
+	
+	public Statement stmt;
     private int crseId;
     private String description;
     private Double mileage;
@@ -26,16 +31,19 @@ public class Course {
     private GetSQL getSql;
 
     public Course() {
+    	logger.info("RunDB_2 Application Course() constructor 001 - Logging INFO");
         init();
     }
 
     public final void init() {
+    	logger.debug("RunDB_2 Application init() method 001 - Logging DEBUG");
         prp = new RunDB2Properties();
         prp.loadRunProp();
         getSql = new GetSQL();
     }
     
     public void addCourse(String desc, Double mileage) {
+    	logger.debug("RunDB_2 Application addCourse() method 001 - Logging DEBUG");
         DbConnect dbcon = new DbConnect();
         try {
             stmt = dbcon.con.createStatement();
@@ -47,6 +55,7 @@ public class Course {
             stmt.executeQuery(sql);
             
         } catch (SQLException err) {
+        	logger.error(err.getMessage());
             System.out.println(err.getMessage());
         } finally {
             if (dbcon != null) {
@@ -56,6 +65,7 @@ public class Course {
         
     }
     public void deleteCourse(int crseId) {
+    	logger.debug("RunDB_2 Application deleteCourse() method 001 - Logging DEBUG");
         DbConnect dbcon = new DbConnect();
         try {
             stmt = dbcon.con.createStatement();
@@ -67,6 +77,7 @@ public class Course {
             stmt.executeQuery(sql);
 
         } catch (SQLException err) {
+        	logger.error(err.getMessage());
             System.out.println(err.getMessage());
         } finally {
             if (dbcon != null) {
@@ -76,6 +87,7 @@ public class Course {
     }
 
     public void updateCourse(int crseId, String desc, Double mileage) {
+    	logger.debug("RunDB_2 Application updateCourse() method 001 - Logging DEBUG");
         DbConnect dbcon = new DbConnect();
         try {
             stmt = dbcon.con.createStatement();
@@ -87,6 +99,7 @@ public class Course {
             stmt.executeQuery(sql);
 
         } catch (SQLException err) {
+        	logger.error(err.getMessage());
             System.out.println(err.getMessage());
         } finally {
             if (dbcon != null) {
@@ -96,6 +109,7 @@ public class Course {
     }
     
     public ArrayList<ArrayList<String>> getCrseList() {
+    	logger.debug("RunDB_2 Application getCrseList() method 001 - Logging DEBUG");
 
         ResultSet rs1;
         ArrayList<ArrayList<String>> table;
@@ -119,6 +133,7 @@ public class Course {
             }
 
         } catch (SQLException err) {
+        	logger.error(err.getMessage());
             System.out.println(err.getMessage());
             table = null;
             throw new RuntimeException(err);

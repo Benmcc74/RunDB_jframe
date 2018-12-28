@@ -12,18 +12,23 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 /**
  *
  * @author Ben McCarthy
  */
 public class RunGui extends javax.swing.JFrame {
 
+	private Logger logger = LogManager.getLogger(RunGui.class);
     private RunDB2Properties prp;
     
     /**
      * Creates new form RunGui
      */
     public RunGui() {
+    	logger.info("RunDB_2 Application RunGui() constructor 001 - Logging INFO");
         initComponents();
         initProp();
     }
@@ -36,6 +41,7 @@ public class RunGui extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+    	logger.debug("RunDB_2 Application initComponents() method 001 - Logging DEBUG");
 
         runTabPane = new javax.swing.JTabbedPane();
         appPanel = new javax.swing.JPanel();
@@ -1354,17 +1360,21 @@ public class RunGui extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void initProp() {
-        prp = new RunDB2Properties();
+    	logger.debug("RunDB_2 Application initProp() method 001 - Logging DEBUG");
+
+    	prp = new RunDB2Properties();
         prp.loadRunProp();
     }
 
     
     private void runPanelComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_runPanelComponentShown
+    	logger.debug("RunDB_2 Application runPanelComponentShown() method 001 - Logging DEBUG");
         //Run Maint Panel
         buildCompRunsTable();
     }//GEN-LAST:event_runPanelComponentShown
 
     private void runTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_runTableMouseClicked
+    	logger.debug("RunDB_2 Application runTableMouseClicked() method 001 - Logging DEBUG");
         //Populate fields when user selects entry from Run Table on Run Maint
         DefaultTableModel model = (DefaultTableModel)runTable.getModel();
         int selectedRowIndex = runTable.getSelectedRow();
@@ -1381,6 +1391,7 @@ public class RunGui extends javax.swing.JFrame {
     }//GEN-LAST:event_runTableMouseClicked
 
     private void btnRunUpdResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRunUpdResetActionPerformed
+    	logger.debug("RunDB_2 Application btnRunUpdResetActionPerformed() method 001 - Logging DEBUG");
         //Initialise fields on Run Maint when Resest clicked
         fieldUpdRunDate.setText("");
         fieldUpdRunCrse.setText("");
@@ -1390,14 +1401,17 @@ public class RunGui extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRunUpdResetActionPerformed
 
     private void fieldUpdRunDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldUpdRunDateActionPerformed
+    	logger.debug("RunDB_2 Application fieldUpdRunDateActionPerformed() method 001 - Logging DEBUG");
         // TODO add your handling code here:
     }//GEN-LAST:event_fieldUpdRunDateActionPerformed
 
     private void fieldUpdRunMilesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldUpdRunMilesActionPerformed
+    	logger.debug("RunDB_2 Application fieldUpdRunMilesActionPerformed() method 001 - Logging DEBUG");
         // TODO add your handling code here:
     }//GEN-LAST:event_fieldUpdRunMilesActionPerformed
 
     private void panelUpdRunComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_panelUpdRunComponentShown
+    	logger.debug("RunDB_2 Application panelUpdRunComponentShown() method 001 - Logging DEBUG");
 
 //Build Run Table and initialise fields on Run Main/Update Run Tabs when screen loaded
         buildCompRunsTable();
@@ -1409,6 +1423,7 @@ public class RunGui extends javax.swing.JFrame {
     }//GEN-LAST:event_panelUpdRunComponentShown
 
     private void panelAddRunComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_panelAddRunComponentShown
+    	logger.debug("RunDB_2 Application panelAddRunComponentShown() method 001 - Logging DEBUG");
 //Build Run Table when Run Maint/Add Run screen is loaded
         buildCompRunsTable();
 //Build list of Courses for Course ID Dropdown Combo
@@ -1432,6 +1447,7 @@ public class RunGui extends javax.swing.JFrame {
     }//GEN-LAST:event_panelAddRunComponentShown
 
     private void btnAddRunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddRunActionPerformed
+    	logger.debug("RunDB_2 Application btnAddRunActionPerformed() method 001 - Logging DEBUG");
         //Get the Course ID from selected entry on Course ID Combo box 
         Course cr = new Course();
         ArrayList<ArrayList<String>> crseListRecs;
@@ -1466,6 +1482,7 @@ public class RunGui extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAddRunActionPerformed
 
     private void comboAddRunCrseIdItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_comboAddRunCrseIdItemStateChanged
+    	logger.debug("RunDB_2 Application comboAddRunCrseIdItemStateChanged() method 001 - Logging DEBUG");
         // when a user selects a Course ID from dropdown, populate corresponding desc mileage fields 
         if (evt.getStateChange() == ItemEvent.DESELECTED){
         } else {
@@ -1487,6 +1504,7 @@ public class RunGui extends javax.swing.JFrame {
     }//GEN-LAST:event_comboAddRunCrseIdItemStateChanged
 
     private void btnRunAddResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRunAddResetActionPerformed
+    	logger.debug("RunDB_2 Application btnRunAddResetActionPerformed() method 001 - Logging DEBUG");
         //Initialise fields on Run Maint/Add Run when Reset clicked
         fieldAddRunDate.setText("");
         fieldAddRunTime.setText("");
@@ -1495,14 +1513,17 @@ public class RunGui extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRunAddResetActionPerformed
 
     private void fieldAddRunCrse3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldAddRunCrse3ActionPerformed
+    	logger.debug("RunDB_2 Application fieldAddRunCrse3ActionPerformed() method 001 - Logging DEBUG");
         // TODO add your handling code here:
     }//GEN-LAST:event_fieldAddRunCrse3ActionPerformed
 
     private void fieldAddRunCrse2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldAddRunCrse2ActionPerformed
+    	logger.debug("RunDB_2 Application fieldAddRunCrse2ActionPerformed() method 001 - Logging DEBUG");
         // TODO add your handling code here:
     }//GEN-LAST:event_fieldAddRunCrse2ActionPerformed
 
     private void btnUpdRunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdRunActionPerformed
+    	logger.debug("RunDB_2 Application btnUpdRunActionPerformed() method 001 - Logging DEBUG");
         //Update Run clicked on Run Maint/Update Run
         int selectRow;
         //Ensure a row is selected
@@ -1543,6 +1564,7 @@ public class RunGui extends javax.swing.JFrame {
     }//GEN-LAST:event_btnUpdRunActionPerformed
 
     private void btnRunDelResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRunDelResetActionPerformed
+    	logger.debug("RunDB_2 Application btnRunDelResetActionPerformed() method 001 - Logging DEBUG");
         //initialise fields on Run Maint/Delete Run when Reset is clicked
         fieldDelRunDate.setText("");
         fieldDelRunCrse.setText("");
@@ -1552,14 +1574,17 @@ public class RunGui extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRunDelResetActionPerformed
 
     private void fieldDelRunDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldDelRunDateActionPerformed
+    	logger.debug("RunDB_2 Application fieldDelRunDateActionPerformed() method 001 - Logging DEBUG");
         // TODO add your handling code here:
     }//GEN-LAST:event_fieldDelRunDateActionPerformed
 
     private void fieldDelRunMilesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldDelRunMilesActionPerformed
+    	logger.debug("RunDB_2 Application fieldDelRunMilesActionPerformed() method 001 - Logging DEBUG");
         // TODO add your handling code here:
     }//GEN-LAST:event_fieldDelRunMilesActionPerformed
 
     private void btnDelRunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDelRunActionPerformed
+    	logger.debug("RunDB_2 Application btnDelRunActionPerformed() method 001 - Logging DEBUG");
         //Delete a run when Delete button clicked on Run Maint/Delete Run
         int selectRow;
         //Ensure a row is se;ected
@@ -1590,6 +1615,7 @@ public class RunGui extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDelRunActionPerformed
 
     private void panelDelRunComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_panelDelRunComponentShown
+    	logger.debug("RunDB_2 Application panelDelRunComponentShown() method 001 - Logging DEBUG");
         //Build Run Maint/Delete Run tab when screen loaded
         //Build Table of runs
         buildCompRunsTable();
@@ -1601,6 +1627,7 @@ public class RunGui extends javax.swing.JFrame {
     }//GEN-LAST:event_panelDelRunComponentShown
 
     private void btnAddCrseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddCrseActionPerformed
+    	logger.debug("RunDB_2 Application btnAddCrseActionPerformed() method 001 - Logging DEBUG");
         //Course Maint/Add Crse Add button clicked
         //Validate Course Desc and Mileage fields have been correctly populated
         FieldValidator fv = new FieldValidator();
@@ -1626,14 +1653,17 @@ public class RunGui extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAddCrseActionPerformed
 
     private void fieldAddCrseDescActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldAddCrseDescActionPerformed
+    	logger.debug("RunDB_2 Application fieldAddCrseDescActionPerformed() method 001 - Logging DEBUG");
         // TODO add your handling code here:
     }//GEN-LAST:event_fieldAddCrseDescActionPerformed
 
     private void fieldAddCrseMilesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldAddCrseMilesActionPerformed
+    	logger.debug("RunDB_2 Application fieldAddCrseMilesActionPerformed() method 001 - Logging DEBUG");
         // TODO add your handling code here:
     }//GEN-LAST:event_fieldAddCrseMilesActionPerformed
 
     private void btnCrseAddResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrseAddResetActionPerformed
+    	logger.debug("RunDB_2 Application btnCrseAddResetActionPerformed() method 001 - Logging DEBUG");
         //Initialise fields on Course Maint/Add Crse when Reset clicked
         fieldAddCrseDesc.setText("");
         fieldAddCrseMiles.setText("");
@@ -1641,6 +1671,7 @@ public class RunGui extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCrseAddResetActionPerformed
 
     private void panelAddCrseComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_panelAddCrseComponentShown
+    	logger.debug("RunDB_2 Application panelAddCrseComponentShown() method 001 - Logging DEBUG");
         //load Crse Table and initialise fields when Course Maint/Add Crse clicked
         buildCourseTable();
         
@@ -1649,6 +1680,7 @@ public class RunGui extends javax.swing.JFrame {
     }//GEN-LAST:event_panelAddCrseComponentShown
 
     private void crseTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_crseTableMouseClicked
+    	logger.debug("RunDB_2 Application crseTableMouseClicked() method 001 - Logging DEBUG");
         //User has selected a Row on Crse Table - populate fields with selected details
         DefaultTableModel model = (DefaultTableModel)crseTable.getModel();
         int selectedRowIndex = crseTable.getSelectedRow();
@@ -1661,6 +1693,7 @@ public class RunGui extends javax.swing.JFrame {
     }//GEN-LAST:event_crseTableMouseClicked
 
     private void btnUpdCrseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdCrseActionPerformed
+    	logger.debug("RunDB_2 Application btnUpdCrseActionPerformed() method 001 - Logging DEBUG");
         //Course Maint/Update Crse Update Course button clicked
         //Ensure a row is selected
         int selectRow;
@@ -1707,14 +1740,17 @@ public class RunGui extends javax.swing.JFrame {
     }//GEN-LAST:event_btnUpdCrseActionPerformed
 
     private void fieldUpdCrseDescActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldUpdCrseDescActionPerformed
+    	logger.debug("RunDB_2 Application fieldUpdCrseDescActionPerformed() method 001 - Logging DEBUG");
         // TODO add your handling code here:
     }//GEN-LAST:event_fieldUpdCrseDescActionPerformed
 
     private void fieldUpdCrseMilesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldUpdCrseMilesActionPerformed
+    	logger.debug("RunDB_2 Application fieldUpdCrseMilesActionPerformed() method 001 - Logging DEBUG");
         // TODO add your handling code here:
     }//GEN-LAST:event_fieldUpdCrseMilesActionPerformed
 
     private void btnCrseUpdResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrseUpdResetActionPerformed
+    	logger.debug("RunDB_2 Application btnCrseUpdResetActionPerformed() method 001 - Logging DEBUG");
         //Initialise fields when Course Maint/Update Crse Reset is clicked
         fieldUpdCrseDesc.setText("");
         fieldUpdCrseMiles.setText("");
@@ -1722,6 +1758,7 @@ public class RunGui extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCrseUpdResetActionPerformed
 
     private void panelUpdCrseComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_panelUpdCrseComponentShown
+    	logger.debug("RunDB_2 Application panelUpdCrseComponentShown() method 001 - Logging DEBUG");
         //Initialise fields and build course table Course Maint/Update Crse panel is loaded
         buildCourseTable();
         
@@ -1730,6 +1767,7 @@ public class RunGui extends javax.swing.JFrame {
     }//GEN-LAST:event_panelUpdCrseComponentShown
 
     private void btnDelCrseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDelCrseActionPerformed
+    	logger.debug("RunDB_2 Application btnDelCrseActionPerformed() method 001 - Logging DEBUG");
         //Course Maint/Delete Crse Delete button clicked
         //Ensure a row is selected
         int selectRow;
@@ -1758,14 +1796,17 @@ public class RunGui extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDelCrseActionPerformed
 
     private void fieldDelCrseDescActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldDelCrseDescActionPerformed
+    	logger.debug("RunDB_2 Application fieldDelCrseDescActionPerformed() method 001 - Logging DEBUG");
         // TODO add your handling code here:
     }//GEN-LAST:event_fieldDelCrseDescActionPerformed
 
     private void fieldDelCrseMilesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldDelCrseMilesActionPerformed
+    	logger.debug("RunDB_2 Application fieldDelCrseMilesActionPerformed() method 001 - Logging DEBUG");
         // TODO add your handling code here:
     }//GEN-LAST:event_fieldDelCrseMilesActionPerformed
 
     private void btnCrseDelResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrseDelResetActionPerformed
+    	logger.debug("RunDB_2 Application btnCrseDelResetActionPerformed() method 001 - Logging DEBUG");
         //Course Maint/Delete Course - initilaise fields when Reset clicked
         fieldDelCrseDesc.setText("");
         fieldDelCrseMiles.setText("");
@@ -1773,6 +1814,7 @@ public class RunGui extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCrseDelResetActionPerformed
 
     private void panelDelCrseComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_panelDelCrseComponentShown
+    	logger.debug("RunDB_2 Application panelDelCrseComponentShown() method 001 - Logging DEBUG");
         //Course Maint/Delete Course Panel loaded
         buildCourseTable();
         
@@ -1781,10 +1823,12 @@ public class RunGui extends javax.swing.JFrame {
     }//GEN-LAST:event_panelDelCrseComponentShown
 
     private void crseRecsTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_crseRecsTableMouseClicked
+    	logger.debug("RunDB_2 Application crseRecsTableMouseClicked() method 001 - Logging DEBUG");
         // TODO add your handling code here:
     }//GEN-LAST:event_crseRecsTableMouseClicked
 
     private void courseRecPanelComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_courseRecPanelComponentShown
+    	logger.debug("RunDB_2 Application courseRecPanelComponentShown() method 001 - Logging DEBUG");
         //Build Course Record Panel
         //Build list of Courses
         Course cr = new Course();
@@ -1808,6 +1852,7 @@ public class RunGui extends javax.swing.JFrame {
     }//GEN-LAST:event_courseRecPanelComponentShown
 
     private void comboCrseRecCrseIdItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_comboCrseRecCrseIdItemStateChanged
+    	logger.debug("RunDB_2 Application comboCrseRecCrseIdItemStateChanged() method 001 - Logging DEBUG");
         //User selects crse Id from Course REcord Crse Id drowpdown
         if (evt.getStateChange() == ItemEvent.DESELECTED){
         } else {
@@ -1840,10 +1885,12 @@ public class RunGui extends javax.swing.JFrame {
     }//GEN-LAST:event_comboCrseRecCrseIdItemStateChanged
 
     private void annRecsTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_annRecsTableMouseClicked
+    	logger.debug("RunDB_2 Application annRecsTableMouseClicked() method 001 - Logging DEBUG");
         // TODO add your handling code here:
     }//GEN-LAST:event_annRecsTableMouseClicked
 
     private void comboAnnRecYearItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_comboAnnRecYearItemStateChanged
+    	logger.debug("RunDB_2 Application comboAnnRecYearItemStateChanged() method 001 - Logging DEBUG");
         //User selected Year from Annual Record Year combo box - build other fields/table for that year
         if (evt.getStateChange() == ItemEvent.DESELECTED){
         } else {
@@ -1865,6 +1912,7 @@ public class RunGui extends javax.swing.JFrame {
     }//GEN-LAST:event_comboAnnRecYearItemStateChanged
 
     private void annualRecPanelComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_annualRecPanelComponentShown
+    	logger.debug("RunDB_2 Application annualRecPanelComponentShown() method 001 - Logging DEBUG");
         // Load Annual Record Panel 
         //Build list of Courses
         AnnualRecord annrec = new AnnualRecord();
@@ -1881,10 +1929,12 @@ public class RunGui extends javax.swing.JFrame {
     }//GEN-LAST:event_annualRecPanelComponentShown
 
     private void lifeRecsTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lifeRecsTableMouseClicked
+    	logger.debug("RunDB_2 Application lifeRecsTableMouseClicked() method 001 - Logging DEBUG");
         // TODO add your handling code here:
     }//GEN-LAST:event_lifeRecsTableMouseClicked
 
     private void lifetimeRecPanelComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_lifetimeRecPanelComponentShown
+    	logger.debug("RunDB_2 Application lifetimeRecPanelComponentShown() method 001 - Logging DEBUG");
         //Load Lifetime REcord panel
         LifetimeRecord lrec = new LifetimeRecord();
         fieldLifeTotal.setText(lrec.getTotalRuns());
@@ -1894,18 +1944,22 @@ public class RunGui extends javax.swing.JFrame {
     }//GEN-LAST:event_lifetimeRecPanelComponentShown
 
     private void fieldLifeMilesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldLifeMilesActionPerformed
+    	logger.debug("RunDB_2 Application fieldLifeMilesActionPerformed() method 001 - Logging DEBUG");
         // TODO add your handling code here:
     }//GEN-LAST:event_fieldLifeMilesActionPerformed
 
     private void fieldCRecWorstDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldCRecWorstDateActionPerformed
+    	logger.debug("RunDB_2 Application fieldCRecWorstDateActionPerformed() method 001 - Logging DEBUG");
         // TODO add your handling code here:
     }//GEN-LAST:event_fieldCRecWorstDateActionPerformed
 
     private void fieldCRecBestDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldCRecBestDateActionPerformed
+    	logger.debug("RunDB_2 Application fieldCRecBestDateActionPerformed() method 001 - Logging DEBUG");
         // TODO add your handling code here:
     }//GEN-LAST:event_fieldCRecBestDateActionPerformed
 
     private void buildCompRunsTable() {
+    	logger.debug("RunDB_2 Application buildCompRunsTable() method 001 - Logging DEBUG");
         //Build the Table of completed Runs used on Run Maintenance
         //Build Table of runs
         LifetimeRecord lr = new LifetimeRecord();
@@ -1925,6 +1979,7 @@ public class RunGui extends javax.swing.JFrame {
     }
     
     private void buildCourseRunsTable(int crseId) {
+    	logger.debug("RunDB_2 Application buildCourseRunsTable() method 001 - Logging DEBUG");
         //Build the Table of Courses Records used on Course Records
         //Build Table of Course Recs
         CourseRecord crec = new CourseRecord();
@@ -1944,6 +1999,7 @@ public class RunGui extends javax.swing.JFrame {
     }
     
     private void buildAnnualRecsTable(String year) {
+    	logger.debug("RunDB_2 Application buildAnnualRecsTable() method 001 - Logging DEBUG");
         //Build the Table of Annual Recs used on Annual Records
         //Build Table of runs
         AnnualRecord annrec = new AnnualRecord();
@@ -1966,6 +2022,7 @@ public class RunGui extends javax.swing.JFrame {
     }
     
     private void buildLifeRecsTable() {
+    	logger.debug("RunDB_2 Application buildLifeRecsTable() method 001 - Logging DEBUG");
         //Build the Table of Lifetime Recs used on Lifetime Records
         //Build Table of runs
         LifetimeRecord liferec = new LifetimeRecord();
@@ -1988,6 +2045,7 @@ public class RunGui extends javax.swing.JFrame {
     }
     
     private void buildCourseTable() {
+    	logger.debug("RunDB_2 Application buildCourseTable() method 001 - Logging DEBUG");
         //Build the Table of Courses used on Course Maintenance
         //Build Table of courses
         Course c1 = new Course();

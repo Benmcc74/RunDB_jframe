@@ -13,11 +13,15 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 /**
  *
  * @author Ben McCarthy
  */
 public class CourseRecord {
+	private Logger logger = LogManager.getLogger(CourseRecord.class);
 
     private int crseId;
     private String crseBestTime;
@@ -29,16 +33,19 @@ public class CourseRecord {
     private GetSQL getSql;
     
     public CourseRecord() {
+    	logger.info("RunDB_2 Application CourseRecord() constructor 001 - Logging INFO");
         init();
     }
 
     public final void init() {
+    	logger.debug("RunDB_2 Application init() method 001 - Logging DEBUG");
         prp = new RunDB2Properties();
         prp.loadRunProp();
         getSql = new GetSQL();
     }
     
     public ArrayList<String> calcCrseBestTime(int crseId) {
+    	logger.debug("RunDB_2 Application calcCrseBestTime() method 001 - Logging DEBUG");
         ResultSet rs1;
         String bestTime = null;
         String bestDate = null;
@@ -66,6 +73,7 @@ public class CourseRecord {
                 bestDate = "NoData";
             }
         } catch (SQLException err) {
+        	logger.error(err.getMessage());
             System.out.println(err.getMessage());
             throw new RuntimeException(err);
         } finally {
@@ -82,6 +90,7 @@ public class CourseRecord {
     }
 
     public ArrayList<String> calcCrseWorstTime(int crseId) {
+    	logger.debug("RunDB_2 Application calcCrseWorstTime() method 001 - Logging DEBUG");
         ResultSet rs2;
         String worstTime = null;
         String worstDate = null;
@@ -109,6 +118,7 @@ public class CourseRecord {
                 worstDate = "NoData";
             }
         } catch (SQLException err) {
+        	logger.error(err.getMessage());
             System.out.println(err.getMessage());
             throw new RuntimeException(err);
         } finally {
@@ -126,6 +136,7 @@ public class CourseRecord {
 
 
     public String calcCrseAvgTime(int crseId) {
+    	logger.debug("RunDB_2 Application calcCrseAvgTime() method 001 - Logging DEBUG");
         ResultSet rs3;
         String crseAvg = null;
         DbConnect dbcon = new DbConnect();
@@ -148,6 +159,7 @@ public class CourseRecord {
                 crseAvg = "NoData";
             }
         } catch (SQLException err) {
+        	logger.error(err.getMessage());
             System.out.println(err.getMessage());
             throw new RuntimeException(err);
         } finally {
@@ -160,6 +172,7 @@ public class CourseRecord {
     }
 
     public ArrayList<ArrayList<String>> getCrseData(int crseId) {
+    	logger.debug("RunDB_2 Application getCrseData() method 001 - Logging DEBUG");
 
         ResultSet rs4;
         ArrayList<ArrayList<String>> table = null;
@@ -183,6 +196,7 @@ public class CourseRecord {
                     row.add(rs4.getString(c).intern());
             }
         } catch (SQLException err) {
+        	logger.error(err.getMessage());
             System.out.println(err.getMessage());
             throw new RuntimeException(err);
         } finally {
@@ -195,6 +209,7 @@ public class CourseRecord {
     }
     
     public String calcTotalRuns(int crseId) {
+    	logger.debug("RunDB_2 Application calcTotalRuns() method 001 - Logging DEBUG");
         ResultSet rs5;
         String crseTtl;
         DbConnect dbcon = new DbConnect();
@@ -216,6 +231,7 @@ public class CourseRecord {
                 crseTtl = "NoData";
             }
         } catch (SQLException err) {
+        	logger.error(err.getMessage());
             System.out.println(err.getMessage());
             throw new RuntimeException(err);
         } finally {
@@ -226,6 +242,7 @@ public class CourseRecord {
         return crseTtl;
     }
     public String getCourseDesc(int crseId) {
+    	logger.debug("RunDB_2 Application getCourseDesc() method 001 - Logging DEBUG");
         ResultSet rs6;
         String crseDesc;
         DbConnect dbcon = new DbConnect();
@@ -247,6 +264,7 @@ public class CourseRecord {
                 crseDesc = "NoData";
             }
         } catch (SQLException err) {
+        	logger.error(err.getMessage());
             System.out.println(err.getMessage());
             throw new RuntimeException(err);
         } finally {
@@ -258,6 +276,7 @@ public class CourseRecord {
     }
 
     public String getCourseMileage(int crseId) {
+    	logger.debug("RunDB_2 Application getCourseMileage() method 001 - Logging DEBUG");
         ResultSet rs7;
         String crseMiles;
         DbConnect dbcon = new DbConnect();
@@ -278,6 +297,7 @@ public class CourseRecord {
                 crseMiles = "NoData";
             }
         } catch (SQLException err) {
+        	logger.error(err.getMessage());
             System.out.println(err.getMessage());
             throw new RuntimeException(err);
         } finally {
